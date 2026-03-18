@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-charcoal: #1A1A1A;
+  --color-primary-navy: #0A1929;
+  --color-secondary-gold: #C9A959;
+  --color-secondary-olive: #5D6D4A;
+  --color-accent-slate: #4A5568;
+  --color-bg-offwhite: #F8F9FA;
+
+  --font-serif: "Cormorant Garamond", "Playfair Display", serif;
+  --font-sans: "Inter", "SF Pro Text", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-offwhite text-primary-charcoal font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+.markdown-body h1 { @apply text-4xl font-bold mb-6 mt-8; }
+.markdown-body h2 { @apply text-3xl font-bold mb-4 mt-6; }
+.markdown-body h3 { @apply text-2xl font-bold mb-3 mt-4; }
+.markdown-body p { @apply mb-4 leading-relaxed; }
+.markdown-body blockquote { @apply border-l-4 border-secondary-gold pl-4 italic my-6 text-xl; }
+.markdown-body ul { @apply list-disc pl-6 mb-4; }
+.markdown-body li { @apply mb-2; }
