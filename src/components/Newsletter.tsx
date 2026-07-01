@@ -9,18 +9,10 @@ export const Newsletter = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('loading');
-    try {
-      await fetch('/api/newsletter', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
-      });
+    setTimeout(() => {
       setStatus('success');
       setEmail('');
-    } catch (error) {
-      console.error(error);
-      setStatus('idle');
-    }
+    }, 800);
   };
 
   return (

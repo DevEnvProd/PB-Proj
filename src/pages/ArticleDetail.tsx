@@ -1,27 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
-import { motion } from 'framer-motion';
-import { Clock, BookOpen, Share2, ArrowLeft, ChevronRight } from 'lucide-react';
-import { Article } from '../types';
+import { Share2, ArrowLeft, ChevronRight } from 'lucide-react';
+import { articles } from '../data';
 
 export const ArticleDetail = () => {
   const { slug } = useParams<{ slug: string }>();
-  const [article, setArticle] = useState<Article | null>(null);
-  const [loading, setLoading] = useState(true);
+  const article = articles.find(a => a.slug === slug) || null;
 
   useEffect(() => {
-    setLoading(true);
-    fetch(`/api/articles/${slug}`)
-      .then(res => res.json())
-      .then(data => {
-        setArticle(data);
-        setLoading(false);
-      });
     window.scrollTo(0, 0);
   }, [slug]);
 
-  if (loading) return <div className="h-screen flex items-center justify-center font-serif text-2xl italic">Loading strategy...</div>;
   if (!article) return <div className="h-screen flex items-center justify-center">Article not found.</div>;
 
   return (

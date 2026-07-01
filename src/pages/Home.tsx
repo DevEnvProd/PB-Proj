@@ -1,20 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, ChevronRight } from 'lucide-react';
 import { ArticleCard } from '../components/ArticleCard';
 import { Newsletter } from '../components/Newsletter';
-import { Article } from '../types';
 import { CATEGORIES } from '../constants';
+import { articles } from '../data';
 
 export const Home = () => {
-  const [featuredArticle, setFeaturedArticle] = useState<Article | null>(null);
-  const [recentArticles, setRecentArticles] = useState<Article[]>([]);
-
-  useEffect(() => {
-    fetch('/api/articles/featured').then(res => res.json()).then(setFeaturedArticle);
-    fetch('/api/articles').then(res => res.json()).then(setRecentArticles);
-  }, []);
+  const featuredArticle = articles[0];
 
   return (
     <div className="pt-20">

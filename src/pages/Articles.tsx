@@ -1,17 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArticleCard } from '../components/ArticleCard';
-import { Article } from '../types';
 import { CATEGORIES } from '../constants';
 import { clsx } from 'clsx';
+import { articles } from '../data';
 
 export const Articles = () => {
-  const [articles, setArticles] = useState<Article[]>([]);
   const [filter, setFilter] = useState('All');
-
-  useEffect(() => {
-    fetch('/api/articles').then(res => res.json()).then(setArticles);
-  }, []);
 
   const filteredArticles = filter === 'All' 
     ? articles 

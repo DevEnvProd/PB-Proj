@@ -47,6 +47,7 @@ export const Footer = () => {
           <ul className="space-y-3 text-sm text-gray-400">
             <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
             <li><Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
+            <li><a href="https://winbox666.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Partner</a></li>
             <li className="pt-4 text-[10px] uppercase tracking-widest opacity-50">
               18+ Content. Strategy involves risk.
             </li>

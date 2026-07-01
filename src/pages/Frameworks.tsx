@@ -1,14 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, ExternalLink } from 'lucide-react';
-import { Framework } from '../types';
+import { ExternalLink } from 'lucide-react';
+import { frameworks } from '../data';
 
 export const Frameworks = () => {
-  const [frameworks, setFrameworks] = useState<Framework[]>([]);
-
-  useEffect(() => {
-    fetch('/api/frameworks').then(res => res.json()).then(setFrameworks);
-  }, []);
 
   return (
     <div className="pt-32 pb-24 px-6 bg-bg-offwhite min-h-screen">

@@ -1,13 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { CaseStudy } from '../types';
+import { caseStudies as studies } from '../data';
 
 export const CaseStudies = () => {
-  const [studies, setStudies] = useState<CaseStudy[]>([]);
-
-  useEffect(() => {
-    fetch('/api/case-studies').then(res => res.json()).then(setStudies);
-  }, []);
 
   return (
     <div className="pt-32 pb-24 px-6 bg-bg-offwhite min-h-screen">
